@@ -103,6 +103,7 @@ In the following series of technical articles, you will build your own runtime a
 |[08](getting-started/Part-08/README.md)| [Configure Axioline I/O modules](getting-started/Part-08/README.md)| Parameterise an Axioline serial communication module, and read the configuration back from the module.|
 |[09](getting-started/Part-09/README.md)| [Disable unnecessary system services](getting-started/Part-09/README.md)| Learn how to disable Profinet, Ethernet/IP™, HMI and/or OPC-UA services on the PLC.|
 |[10](getting-started/Part-10/README.md)| [OPC UA](getting-started/Part-10/README.md)| Make data in the runtime application available through an OPC UA server.|
+|[11](getting-started/Part-11/README.md)| [Creating Axioline bus configuration via "IOConf"](getting-started/Part-11/README.md)| Use the "IOConf" command line tool to create the Axioline bus configuration without PLCnext Engineer.|
 || [Explore unlimited possibilities ...](getting-started/Part-99/README.md)| Get ideas for other interesting features you can implement in your own PLCnext runtime application.|
 
 ---
