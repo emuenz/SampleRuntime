@@ -34,7 +34,7 @@ After installation verify the .Net version via command line:
 
 1. Open the directory "/opt/plcnext/projects/Default/Io/AxlC" on the PLCnext target and edit the config file "Default.axlc.config":
 
-   ```cpp
+   ```xml
    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
    <FbIoConfigurationDocument schemaVersion="1.0">
   
@@ -50,7 +50,7 @@ After installation verify the .Net version via command line:
 
 1. Open the directory "/opt/plcnext/projects/Default/Plc/FbIo.AxlC" on the PLCnext target and edit the config file "Default.fbio.config":
 
-   ```cpp
+   ```xml
    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
    <FbIoConfigurationDocument schemaVersion="1.0">
   
@@ -65,7 +65,7 @@ After installation verify the .Net version via command line:
    
 1. Open the directory "/opt/plcnext/projects/Default/Plc/Gds" on the PLCnext target and edit the config file "Default.gds.config":
 
-   ```cpp
+   ```xml
    <?xml version="1.0" encoding="utf-8"?>
    <GdsConfigurationDocument 
    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
