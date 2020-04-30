@@ -24,34 +24,61 @@ The PLCnext Command-Line Interface (CLI) includes a template for a PLM project, 
 
 1. Download and install the [.NET Core Runtime 3.1.3](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-3.1.3-linux-arm32-binaries) or [SDK 3.1.201](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-linux-arm32-binaries) on the PLCnext target. 
 The [procedure for installation .NET Core runtime](https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html#comment-108) is given in the PLCnext Community.
-After installation verfify the .Net version via command line:
+After installation verify the .Net version via command line:
    
    ```
    dotnet --version
    ```
 
-1. The CLI default project includes source files for a real-time C++ program. This example does not use real-time PLM programs, and so these program source files can be deleted.
+1. Copy the IOConf tool "PLCnIOconf-netstandard2.0" via WinSCP or the command line into the directory "/opt/plcnext" on the PLCnext target. 
 
-   ```
-   cd src
-   rm RuntimeOpcProgram.*
-   ```
-
-1. Open the Component .hpp file in your favourite editor, and add the following GDS Port definition in the section indicated by the auto-generated comment:
+1. Open the directory "/opt/plcnext/projects/Default/Io/AxlC" on the PLCnext target and edit the config file "Default.axlc.config":
 
    ```cpp
-    //#attributes(Hidden|Opc)
-    struct DATA {
-        //#attributes(Input)
-        int32 Runtime_RW = 0;
-        //#attributes(Output)
-        int32 Runtime_RO = 0;
-    };
-
-    //#port
-    DATA data;
+   <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+   <FbIoConfigurationDocument schemaVersion="1.0">
+  
+      <Includes>
+         <!-- Include the SampleRuntime AXIO IO if available -->
+         <Include path="$ARP_PROJECTS_DIR$/runtime/Io/Arp.Io.AxlC/*.axlc.config" />  
+      </Includes>
+  
+      <Links path="$ARP_PROJECTS_DIR$/runtime/Io/Arp.Io.AxlC/links.xml" probe="true" />
+      
+     </FbIoConfigurationDocument>
    ```
 
+1. Open the directory "/opt/plcnext/projects/Default/Plc/FbIo.AxlC" on the PLCnext target and edit the config file "Default.fbio.config":
+
+   ```cpp
+   <?xml version="1.0" encoding="utf-8" standalone="yes"?>
+   <FbIoConfigurationDocument schemaVersion="1.0">
+  
+      <Includes>
+         <Include path="$ARP_PROJECTS_DIR$/runtime/Io/Arp.Io.AxlC/*.fbio.config" />  
+      </Includes>
+
+      <Links path="$ARP_PROJECTS_DIR$/runtime/Io/Arp.Io.AxlC/links.xml" probe="true" />
+
+   </FbIoConfigurationDocument>
+   ```
+   
+1. Open the directory "/opt/plcnext/projects/Default/Plc/Gds" on the PLCnext target and edit the config file "Default.gds.config":
+
+   ```cpp
+   <?xml version="1.0" encoding="utf-8"?>
+   <GdsConfigurationDocument 
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns="http://www.phoenixcontact.com/schema/gdsconfig"
+   schemaVersion="1.0" >
+  
+      <Includes>
+         <Include path="$ARP_PROJECTS_DIR$/runtime/Gds/*.gds.config" />
+      </Includes>
+  
+   </GdsConfigurationDocument>
+   ```
    This will create two OPC UA data items; one read/write (Input) and one read-only (Output), each holding an integer value. Corresponding GDS variables will also be created using this information.
 
    This `struct` can include any number of elements. The data type of each element must be taken from the list in Appendix A of the PLCnext Technology User Manual (version 2019.6).
