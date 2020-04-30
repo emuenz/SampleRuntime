@@ -22,12 +22,12 @@ The PLCnext Command-Line Interface (CLI) includes a template for a PLM project, 
 
 ### Procedure
 
-1. Using the PLCnext CLI, create a new project based on the standard template and set the target for the build. In this example, the project is called `RuntimeOpc`, but you can call it whatever you want.
+1. Download and install the [.NET Core Runtime 3.1.3](https://dotnet.microsoft.com/download/dotnet-core/thank-you/runtime-3.1.3-linux-arm32-binaries) or [SDK 3.1.201](https://dotnet.microsoft.com/download/dotnet-core/thank-you/sdk-3.1.201-linux-arm32-binaries) on the PLCnext target. 
+The [procedure for installation .NET Core runtime](https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html#comment-108) is given in the PLCnext Community.
+After installation verfify the .Net version via command line:
    
    ```
-   plcncli new project -n RuntimeOpc
-   cd RuntimeOpc
-   plcncli set target --add -n AXCF2152 -v 2020.0
+   dotnet --version
    ```
 
 1. The CLI default project includes source files for a real-time C++ program. This example does not use real-time PLM programs, and so these program source files can be deleted.
