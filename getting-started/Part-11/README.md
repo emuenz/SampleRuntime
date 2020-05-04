@@ -23,22 +23,22 @@ The PLCnext IOConf Interface is developed in C# and can be executed on Windows a
 The [procedure for installation .NET Core runtime](https://www.plcnext-community.net/en/hn-makers-blog/424-install-the-net-core-runtime-3-0-0-on-the-axc-f-2152.html#comment-108) is given in the PLCnext Community.
 After installation verify the .Net version via command line:
    
-   ```
+   ```bash
    dotnet --version
    ```
 
 1. Copy the IOConf tool "PLCnIOconf-netstandard2.0" via WinSCP or the command line into the directory "/opt/plcnext" on the PLCnext target. 
 
-1. Copy the ioconf_axio.sh script located in the tools folder into "/opt/plcnext/PLCnIOconf-netstandard2.0/bin" directory on the plcnext target.
+1. Copy the ioconf_axio.sh script located in the [tools](https://github.com/PLCnext/SampleRuntime/tree/master/tools) folder into "/opt/plcnext/PLCnIOconf-netstandard2.0/bin" directory on the plcnext target.
 
 1. Make the script "ioconf_axio.sh" executable.
 
-   ```
+   ```bash
    chmod +x ioconf_axio.sh
    ```
 1. Execute the "ioconf_axio.sh" script.
 
-   ```
+   ```bash
    ./ioconf_axio.sh
    ```
    
@@ -48,7 +48,7 @@ After installation verify the .Net version via command line:
 
 1. Copy the "Arp.Io.AxlC" and "Arp.Io.PnC" folder located in "/opt/plcnext/PLCnIOconf-netstandard2.0/bin/Projects/SampleRuntime/Io/ID_Token/PLCnext" to "/opt/plcnext/projects/runtime/Io"directory.
 
-1. Open the directory "/opt/plcnext/projects/Default/Io/AxlC" on the PLCnext target and edit the config file "Default.axlc.config":
+1. Open the Default-Io directory "/opt/plcnext/projects/Default/Io/AxlC" on the PLCnext target and edit the config file "Default.axlc.config":
 
    ```xml
    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -64,7 +64,7 @@ After installation verify the .Net version via command line:
      </FbIoConfigurationDocument>
    ```
 
-1. Open the directory "/opt/plcnext/projects/Default/Plc/FbIo.AxlC" on the PLCnext target and edit the config file "Default.fbio.config":
+1. Open the Default-Plc directory "/opt/plcnext/projects/Default/Plc/FbIo.AxlC" on the PLCnext target and edit the config file "Default.fbio.config":
 
    ```xml
    <?xml version="1.0" encoding="utf-8" standalone="yes"?>
@@ -79,7 +79,7 @@ After installation verify the .Net version via command line:
    </FbIoConfigurationDocument>
    ```
    
-1. Open the directory "/opt/plcnext/projects/Default/Plc/Gds" on the PLCnext target and edit the config file "Default.gds.config":
+1. Open the Default-Gds directory "/opt/plcnext/projects/Default/Plc/Gds" on the PLCnext target and edit the config file "Default.gds.config":
 
    ```xml
    <?xml version="1.0" encoding="utf-8"?>
