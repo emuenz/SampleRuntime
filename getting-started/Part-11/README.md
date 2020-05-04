@@ -6,6 +6,10 @@ PLCnext IOconf Interface generates network configurations for PLCnext controller
 
 This article provides a procedure for the following tasks:
 
+1. Installation of `.Net Core Runtime 3.1.3` on PLCnext target.
+
+1. Installation of `PLCnIOconf-netstandard2.0` on PLCnext target.
+
 1. Creating custom bus configuration with Axioline I/O modules.
 
 1. Replacing the bus configuration generated in PLCnext Enginner with IOConf Axioline bus configuration.
@@ -15,7 +19,7 @@ This article provides a procedure for the following tasks:
 
 ### Technical Background
 
-The PLCnext IOConf Interface is developed in C# and can be executed on Windows and Linux operating system with .Net Core installation.  
+The PLCnext IOConf Interface is developed in C# and can be executed on Windows and Linux operating systems with .Net Core installation.  
 
 ### Procedure
 
