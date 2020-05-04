@@ -29,6 +29,25 @@ After installation verify the .Net version via command line:
 
 1. Copy the IOConf tool "PLCnIOconf-netstandard2.0" via WinSCP or the command line into the directory "/opt/plcnext" on the PLCnext target. 
 
+1. Copy the ioconf_axio.sh script located in the tools folder into "/opt/plcnext/PLCnIOconf-netstandard2.0/bin" directory on the plcnext target.
+
+1. Make the script "ioconf_axio.sh" executable.
+
+   ```
+   chmod +x ioconf_axio.sh
+   ```
+1. Execute the "ioconf_axio.sh" script.
+
+   ```
+   ./ioconf_axio.sh
+   ```
+   
+1. After successful execution, find the Axioline IO Busconfiguration in "/opt/plcnext/PLCnIOconf-netstandard2.0/bin/Projects/SampleRuntime/Io/ID_Token/PLCnext" directory (folders "Arp.Io.AxlC" and "Arp.Io.PnC").
+
+1. Create in "/opt/plcnext/projects/runtime" a "Io" directory.
+
+1. Copy the "Arp.Io.AxlC" and "Arp.Io.PnC" folder located in "/opt/plcnext/PLCnIOconf-netstandard2.0/bin/Projects/SampleRuntime/Io/ID_Token/PLCnext" to "/opt/plcnext/projects/runtime/Io"directory.
+
 1. Open the directory "/opt/plcnext/projects/Default/Io/AxlC" on the PLCnext target and edit the config file "Default.axlc.config":
 
    ```xml
@@ -162,8 +181,6 @@ After installation verify the .Net version via command line:
 These OPC UA variables can now be used by the runtime application.
 
 ### Next steps
-
-GDS variables corresponding to the new OPC UA data items have been created and are available to any application that can access the Global Data Space. The runtime application can exchange data with these GDS variables using the "Data Access" and/or "Subscription" RSC services.
 
 ---
 
