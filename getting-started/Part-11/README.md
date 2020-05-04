@@ -2,23 +2,20 @@ This is part of a [series of articles](https://github.com/PLCnext/SampleRuntime)
 
 ## Part 11 - IOConf
 
-OPC UA is the industry standard for exchanging non-real-time data between industrial automation software components. It would therefore be useful if data in a PLCnext runtime application could be accessed via an OPC UA server.
+PLCnext IOconf Interface generates network configurations for PLCnext controllers via the command line. IOconf was developed for PLCnext users who do not use PLCnext Engineer, but a different development environment, for example exclusively high-level language programming. IOConf supports Axioline Local Bus Devices and Profinet Devices.
 
-An OPC UA server for a custom runtime application could be implemented in a number of ways. However, since there is already a full-featured OPC UA server included with every PLCnext Control, it makes sense to use this OPC UA server for applications running on the same PLC.
+This article provides a procedure for the following tasks:
 
-This article provides a procedure for the following two tasks:
+1. Creating custom bus configuration with Axioline I/O modules.
 
-1. Creating custom data items in the OPC UA server address space.
+1. Replacing the bus configuration generated in PLCnext Enginner with IOConf Axioline bus configuration.
 
-1. Exchanging data between the runtime and custom data items in the OPC UA server address space.
+1. Editing the configuration files on the PLCnext target.
+
 
 ### Technical Background
 
-On a PLCnext Control, the OPC UA server address space is populated by the Program Library Manager (PLM) using information in `.*meta` files associated with PLM components and programs. Since we cannot interact with the PLM directly from a runtime application, we must create a separate shared object library containing a PLM component that defines data items from our runtime application that should appear in the OPC UA server address space. We must then instruct the PLCnext runtime to create the PLM component at startup.
-
-A PLM component that populates the OPC UA address space also creates a GDS port variable for each OPC UA data item that it creates. Each of these GDS port variable is linked to its associated OPC UA data item, so applications that can read and write GDS variables can use these variables to (indirectly) read and write the corresponding OPC UA data items.
-
-The PLCnext Command-Line Interface (CLI) includes a template for a PLM project, so we will use this as the starting point in the creation of a PLM component that we will use to create OPC UA data items and their associated GDS variables.
+The PLCnext IOConf Interface is developed in C# and can be executed on Windows and Linux operating system with .Net Core installation.  
 
 ### Procedure
 
